@@ -19,7 +19,7 @@ impl Drop for CleanUp {
 
 fn print_screen(screen: &HashMap<i32, u8>, symbols: [char; 16], width: i32, height: i32) {
     for y in 0..height {
-        println!("{}", (0..width).map(|x| symbols[*screen.get(&(y * width + x)).unwrap_or(&0) as usize]).collect::<String>());
+        print!("{}\r\n", (0..width).map(|x| symbols[*screen.get(&(y * width + x)).unwrap_or(&0) as usize]).collect::<String>());
     }
 }
 fn main() -> crossterm::Result<()> {
